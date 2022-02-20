@@ -156,13 +156,14 @@ def evaluate(data):
 
 print("Loading data")
 data_train = get_train_df('train/annotations/', 'train/images/')
-data_test = get_train_df('train/annotations/', 'train/images/')
+data_test = get_train_df('test/annotations/', 'test/images/')
 # print(data_train)
 print("Balancing data")
 data_train = balance_dataset(data_train, 1.0)
+data_test = balance_dataset(data_test, 1.0)
 
-# print("Learning BOVW")
-# learn_bovw(data_train)
+print("Learning BOVW")
+learn_bovw(data_train)
 
 print('extracting train features')
 data_train = extract_features(data_train)
